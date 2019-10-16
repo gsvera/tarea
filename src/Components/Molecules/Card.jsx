@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {Link} from "react-router-dom"
 
 
-const Card = ({id, title, image, price, teacher}) => (
+const Card = ({id, titulo, image, precio, profesor}) => (
 
   <article className="card">
     <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
@@ -12,10 +12,10 @@ const Card = ({id, title, image, price, teacher}) => (
       </Link>
     </div>
     <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
-     <h3 className="center">{title}</h3> 
-        <div className="s-main-center">{`Prof.:${teacher}`}</div>
+     <h3 className="center">{titulo}</h3> 
+        <div className="s-main-center">{`Prof.:${profesor}`}</div>
         <div className="s-main-center">
-            <a className="button--ghost-alert button--tiny" href="https://ed.team">$ {price}</a>
+            <a className="button--ghost-alert button--tiny" href="https://ed.team">$ {precio}</a>
         </div>
     </div>
   </article>
@@ -24,16 +24,16 @@ const Card = ({id, title, image, price, teacher}) => (
 )
 // Con esto declaramos que esperamos con los protypes
 Card.propTypes = {
-    title : PropTypes.string,
+    titulo : PropTypes.string,
     image : PropTypes.string,
-    price : PropTypes.string,
-    teacher : PropTypes.string
+    precio : PropTypes.string,
+    profesor : PropTypes.string
 }
 // Con esto declaramos los valores por defecto
 Card.defaultProps = {
-    title : "No se encontro titulo",
+    titulo : "No se encontro titulo",
     image : "data:image/png;base64,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",
-    price : "--",
-    teacher : ""
+    precio : "--",
+    profesor : ""
 }
 export default Card
